@@ -1,0 +1,8 @@
+{% extends 'main.html' %}
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{login_user.as_p}}
+    <input type="submit" name="login_register_submit" />
+
+{% endblock content %}

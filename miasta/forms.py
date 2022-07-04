@@ -6,7 +6,8 @@ from django.contrib.auth.models import User
 class User_form(ModelForm):
     class Meta:
         model = User
-        fields = ['email', 'username']
+        fields = ['email', 'password']
+
 
 class Place_form(ModelForm):
     class Meta:

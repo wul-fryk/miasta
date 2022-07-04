@@ -1,6 +1,8 @@
+from multiprocessing import context
 from django.shortcuts import redirect, render
-from .models import City
-from .forms import Place_form
+from .models import City, Place
+from .forms import Place_form, User_form
+from django.contrib.auth.models import User
 
 # Create your views here.
 def home(request):
@@ -10,7 +12,8 @@ def home(request):
 
 def city_page(request, pk):
     name = City.objects.get(id=pk)
-    context = {'name':name}
+    place = Place.objects.all()
+    context = {'name':name, 'place':place}
     return render(request, 'miasta/city_page.html', context)
 
 
@@ -23,3 +26,11 @@ def add_place_page(request):
             return redirect('/')
     context = {'form': form}
     return render(request, 'miasta/add_place.html', context)
+
+
+def user_login(request):
+    login_user = User_form()
+
+
+    context = {'login_user':login_user}
+    return render(request, 'miasta/login_register.html', context)

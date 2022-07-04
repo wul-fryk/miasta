@@ -4,5 +4,13 @@
 <h1>{{name}}</h1>
 <h3>Liczba ludności: {{name.citizens}}</h3>
 <h3>Informacje: {{name.informations}}</h3>
+<h4>Miejsca w {{name}}</h4>
+<ul>
+    {% for palce_in_city in place %}
+    <li>
+        {{palce_in_city.place_name}}
+    </li>
+    {% endfor %}
+</ul>
 
 {% endblock content %}

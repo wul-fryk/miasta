@@ -2,12 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-# class Citizen(models.Model):
-#     # citizen_name = 
-#     # city_belong = 
-#     # work = 
-#     # messages = 
-#     pass
+class Citizen(models.Model):
+    citizen_name = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    # city_belong = 
+    # work = 
+    # messages = 
+    pass
 
 class City(models.Model):
     city_name = models.CharField(max_length=33)
